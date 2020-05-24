@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import './quiz.dart';
 import './result.dart';
@@ -10,37 +11,54 @@ class MyApp extends StatefulWidget{
   }
 }
 class _MyAppState extends State<MyApp> {
-  final String quizOver='You are done';
+  //final String quizOver='You are done';
    final _questions= const
     [
       {
-        'questionText' : 'What\'s your name?',
-        'answers' : [{'text' : 'Rabbit' , 'score': 10},
-                     {'text' : 'Snake' , 'score' :10},
-                     {'text' : 'Lion' , 'score' : 20},
-                     {'text' : 'Elephant' , 'score' : 50}
+        'questionText' : 'Flutter is an __________ mobile application development framework created by Google.',
+        'answers' : [{'text' : 'Open Source' , 'score': 10},
+                     {'text' : 'Shareware' , 'score' :10},
+                     {'text' : 'Both' , 'score' : 20},
+                     {'text' : 'None of the above' , 'score' : 50}
                     ],
       },
       {
-          'questionText' : 'What\'s favourite color?',
-          'answers' : [{'text' : 'Blue' , 'score' : 30},
-                       {'text' : 'Green' , 'score' : 15 },
-                       {'text' : 'Yellow' , 'score' : 30},
-                       {'text' : 'Black' , 'score' : 40}
+          'questionText' : 'Flutter is used to develop applications for __________ and __________.',
+          'answers' : [{'text' : 'Android' , 'score' : 30},
+                       {'text' : 'iOS' , 'score' : 15 },
+                       {'text' : 'Both' , 'score' : 30},
+                       {'text' : 'None' , 'score' : 40}
                       ],
       },
       {
-        'questionText' : 'What\'s your favourite car?',
-        'answers' :   [{'text' : 'Mercedes' , 'score' : 30},
-                       {'text' : 'Audi' , 'score' : 15 },
-                       {'text' : 'Bentley' , 'score' : 30},
-                       {'text' : 'Jaguar' , 'score' : 40}
+        'questionText' : 'The first version of Flutter was known as codename __________ and ran on the Android operating system.?',
+        'answers' :   [{'text' : 'Cloud' , 'score' : 30},
+                       {'text' : 'Sky' , 'score' : 15 },
+                       {'text' : 'Rain' , 'score' : 30},
+                       {'text' : 'None' , 'score' : 40}
                       ],
       },
+      {
+        
+        'questionText' : 'Due to App Store restrictions on dynamic code execution, Flutter apps use __________ compilation on iOS.?',
+        'answers' :   [{'text' : 'Cloud ahead-of-time (AOT)' , 'score' : 30},
+                       {'text' : 'ahed-of-code (AOC)' , 'score' : 15 },
+                       {'text' : 'Both' , 'score' : 30},
+                       {'text' : 'None' , 'score' : 40}
+                      ],
+      }
     ];
 
   var _questionsIndex=0;
   var _totalScore = 0;
+
+  void resetQuiz(){
+    setState(() {
+      _questionsIndex=0;
+      _totalScore=0;
+    });
+  }
+
   void _answerQuestions(int score ){
     
     _totalScore+=score;
@@ -55,17 +73,16 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-   
     return MaterialApp(
-        home: Scaffold(
-      appBar: AppBar(
-        title: Text('My First Flutter App'),
-      ),
+      home: Scaffold(
+      backgroundColor: Color.fromRGBO(22, 32, 55,3),
       body: _questionsIndex<_questions.length ? 
       Quiz(answerQuestions:_answerQuestions
       ,questionIndex : _questionsIndex,
-      questions: _questions) : Result(_totalScore),
-      )
-    );
+      questions: _questions) : Result(_totalScore,resetQuiz),
+      
+      ),
+      
+   );
   }
 }
