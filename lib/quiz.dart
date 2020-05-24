@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import './answers.dart';
 import './Questions.dart';
+import 'package:percent_indicator/percent_indicator.dart';
 
 class Quiz extends StatelessWidget {
   final List<Map<String,Object>> questions;
@@ -19,7 +20,7 @@ class Quiz extends StatelessWidget {
       Column(
       children: [
         //Text('The questions are.'), 
-        Questions(
+        Questions(questionText:
           questions[questionIndex]['questionText']
           ),
           ...(questions[questionIndex]['answers'] as List<Map<String,Object>>).map((answer){

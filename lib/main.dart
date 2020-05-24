@@ -74,6 +74,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
       backgroundColor: Color.fromRGBO(22, 32, 55,3),
       body: _questionsIndex<_questions.length ? 
