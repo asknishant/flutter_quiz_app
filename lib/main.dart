@@ -15,10 +15,10 @@ class _MyAppState extends State<MyApp> {
    final _questions= const
     [
       {
-        'questionText' : 'Flutter is an __________ mobile application development framework created by Google.',
+        'questionText' : 'Flutter is a/an __________ mobile application development framework created by Google.',
         'answers' : [{'text' : 'Open Source' , 'score': 10},
                      {'text' : 'Shareware' , 'score' :10},
-                     {'text' : 'Both' , 'score' : 20},
+                     {'text' : 'Closed Source' , 'score' : 20},
                      {'text' : 'None of the above' , 'score' : 50}
                     ],
       },
@@ -66,8 +66,8 @@ class _MyAppState extends State<MyApp> {
        _questionsIndex++;
     });
     if(_questionsIndex<_questions.length){
-      print('Over');
-    }else print('We have more _questions');
+      print('More Questions');
+    }else print('Over');
     print(_questionsIndex);
   }
 

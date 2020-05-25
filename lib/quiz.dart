@@ -24,7 +24,7 @@ class Quiz extends StatelessWidget {
           questions[questionIndex]['questionText']
           ),
           ...(questions[questionIndex]['answers'] as List<Map<String,Object>>).map((answer){
-            return Answer(() =>answerQuestions(answer['score']),answer['text']);
+            return Answer(fn:() =>answerQuestions(answer['score']) ,answerText: answer['text']);
           }).toList(),
 
           Container(
@@ -32,10 +32,8 @@ class Quiz extends StatelessWidget {
         height: 40,
         child: FlatButton(  
           textColor: Colors.white,
-          //color: Colors.blue,
           child: Text('Next',textAlign: TextAlign.left,),
           onPressed: null,
-          //padding: EdgeInsets.only(left: 30,right: 30),
           ),
           
           decoration: new BoxDecoration(borderRadius: BorderRadius.circular(30.0),
